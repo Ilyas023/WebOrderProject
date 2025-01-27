@@ -7,10 +7,12 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\WebOrderProject.Infrastructure.csproj" />
+    <ProjectReference Include="..\WebOrderProject.Infrastructure\WebOrderProject.Infrastructure.csproj" />
+    <ProjectReference Include="..\WebOrderProject.Application\WebOrderProject.Application.csproj" />
   </ItemGroup>
 </Project>

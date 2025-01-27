@@ -26,10 +26,6 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
         builder.Property(p => p.Quantity)
                .IsRequired();
 
-        builder.Property(p => p.CreatedAt)
-               .HasDefaultValueSql("NOW()")
-               .IsRequired();
-
         builder.ToTable("products");
     }
 }

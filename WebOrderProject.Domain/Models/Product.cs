@@ -15,3 +15,4 @@ public class Product
     public DateTime CreatedAt { get; set; }
     public ICollection<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
 }
+
