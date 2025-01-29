@@ -28,6 +28,6 @@ public class OrderProductConfiguration : IEntityTypeConfiguration<OrderProduct>
         builder.Property(op => op.Quantity)
                .IsRequired();
 
-        builder.ToTable("order_product");
+        builder.ToTable("OrderProduct");
     }
 }

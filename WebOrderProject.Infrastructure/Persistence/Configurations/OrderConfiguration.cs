@@ -35,7 +35,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
                .HasDefaultValueSql("NOW()")
                .IsRequired();
 
-        builder.ToTable("orders");
+        builder.ToTable("Order");
     }
 }
 
