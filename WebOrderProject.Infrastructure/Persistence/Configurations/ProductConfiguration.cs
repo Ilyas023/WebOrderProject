@@ -26,6 +26,6 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
         builder.Property(p => p.Quantity)
                .IsRequired();
 
-        builder.ToTable("products");
+        builder.ToTable("Product");
     }
 }
