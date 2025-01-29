@@ -58,7 +58,7 @@ public class OrderService : IOrderService
         }).ToList();
     }
 
-    public async Task<Guid> CreateOrderAsync(OrderDto orderDto)
+    public async Task<Guid> CreateOrderAsync(CutOrderDto orderDto)
     {
         var order = new Order
         {
@@ -86,6 +86,11 @@ public class OrderService : IOrderService
 
         order.Status = status;
         await _orderRepository.UpdateAsync(order);
+    }
+    
+    public async Task UpdateOrderAsync(Guid orderId, CutOrderDto orderDto)
+    {
+        
     }
 
     public async Task DeleteOrderAsync(Guid orderId)

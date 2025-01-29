@@ -37,7 +37,7 @@ public class ProductsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateProduct([FromBody] ProductDto productDto)
+    public async Task<IActionResult> CreateProduct([FromBody] CutProductDto productDto)
     {
         if (!ModelState.IsValid)
         {
@@ -49,17 +49,16 @@ public class ProductsController : ControllerBase
     }
 
     [HttpPut("{productId}")]
-    public async Task<IActionResult> UpdateProduct(Guid productId, [FromBody] ProductDto productDto)
+    public async Task<IActionResult> UpdateProduct(Guid productId, [FromBody] CutProductDto productDto)
     {
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
 
-        productDto.ProductId = productId;
         try
         {
-            await _productService.UpdateProductAsync(productDto);
+            await _productService.UpdateProductAsync(productDto, productId);
             return NoContent();
         }
         catch (Exception ex)

@@ -12,7 +12,8 @@ public interface IOrderService
 {
     Task<OrderDto?> GetOrderByIdAsync(Guid orderId);
     Task<List<OrderDto>> GetAllOrdersAsync();
-    Task<Guid> CreateOrderAsync(OrderDto orderDto);
+    Task<Guid> CreateOrderAsync(CutOrderDto orderDto);
     Task UpdateOrderStatusAsync(Guid orderId, OrderStatus status);
+    Task UpdateOrderAsync(Guid orderId, CutOrderDto orderDto);
     Task DeleteOrderAsync(Guid orderId);
 }

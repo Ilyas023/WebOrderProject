@@ -35,7 +35,7 @@ public class OrdersController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateOrder([FromBody] OrderDto orderDto)
+    public async Task<IActionResult> CreateOrder([FromBody] CutOrderDto orderDto)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
@@ -48,6 +48,13 @@ public class OrdersController : ControllerBase
     public async Task<IActionResult> UpdateOrderStatus(Guid orderId, [FromBody] OrderStatus status)
     {
         await _orderService.UpdateOrderStatusAsync(orderId, status);
+        return NoContent();
+    }
+    
+    [HttpPut("{orderId}/{orderDto}")]
+    public async Task<IActionResult> UpdateOrder(Guid orderId, [FromBody] CutOrderDto orderDto)
+    {
+        await _orderService.UpdateOrderAsync(orderId, orderDto);
         return NoContent();
     }
 

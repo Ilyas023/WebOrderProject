@@ -11,7 +11,7 @@ public interface IProductService
 {
     Task<ProductDto?> GetProductByIdAsync(Guid productId);
     Task<List<ProductDto>> GetAllProductsAsync();
-    Task<Guid> CreateProductAsync(ProductDto productDto);
-    Task UpdateProductAsync(ProductDto productDto);
+    Task<Guid> CreateProductAsync(CutProductDto productDto);
+    Task UpdateProductAsync(CutProductDto productDto, Guid productId);
     Task DeleteProductAsync(Guid productId);
 }

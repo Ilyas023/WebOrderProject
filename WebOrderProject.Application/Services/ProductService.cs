@@ -15,7 +15,7 @@ public class ProductService : IProductService
         _productRepository = productRepository;
     }
 
-    public async Task<Guid> CreateProductAsync(ProductDto productDto)
+    public async Task<Guid> CreateProductAsync(CutProductDto productDto)
     {
         var product = new Product
         {
@@ -64,11 +64,11 @@ public class ProductService : IProductService
         };
     }
 
-    public async Task UpdateProductAsync(ProductDto productDto)
+    public async Task UpdateProductAsync(CutProductDto productDto, Guid productId)
     {
-        var product = await _productRepository.GetByIdAsync(productDto.ProductId);
+        var product = await _productRepository.GetByIdAsync(productId);
         if (product == null)
-            throw new NotFoundException($"Product with ID {productDto.ProductId} not found.");
+            throw new NotFoundException($"Product with ID {productId} not found.");
 
         product.Name = productDto.Name;
         product.Price = productDto.Price;

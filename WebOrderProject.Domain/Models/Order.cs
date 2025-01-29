@@ -14,7 +14,6 @@ public class Order
     public OrderStatus Status { get; set; }
     public decimal TotalPrice { get; set; }
     public DateTime CreatedAt { get; set; }
-
     public ICollection<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
 
 
